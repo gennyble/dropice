@@ -5,6 +5,10 @@
 set fulldatestring $argv[1]" 12:00:00"
 
 for x in (seq 0 100)
-	cat "DROP ICE" > $argv[1]".txt"
-	env GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring git commit -am "Drop Ice "$argv[1]" #"$x
+	set file $argv[1]".txt"
+
+	echo "DROP ICE" >> $file
+	git add $file
+
+	env GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring git commit -m "Drop Ice "$argv[1]" #"$x
 end
