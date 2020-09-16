@@ -42,6 +42,20 @@ function tomorrow
 	date --date=$argv[1]"+1 day" +%F
 end
 
+function commit100
+	set fulldatestring $argv[1]" 12:00:00"
+	echo "Performing 100 commits on"$argv[1]"..."
+	for x in (seq 0 100)
+		mkdir -p "dropice"
+		set file "dropice/"$argv[1]".txt"
+		
+		echo "DROP ICE" >> $file
+		git add $file
+
+		env GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring git commit -m "Drop Ice "$argv[1]" #"$x > /dev/null 2>&1
+	end
+end
+
 # Short for write_horizontal
 function wh
 	set pattern $argv[1]
@@ -54,7 +68,7 @@ function wh
 		set day (yesterday $day)
 
 		if test "$c" = "X"
-			./datefill.sh $day
+			commit100 $day
 		end
 	end
 	echo ""
