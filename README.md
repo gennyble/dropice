@@ -21,6 +21,11 @@ file.
 
 [dropice_image]: res/drop_ice.png
 
+You can see `DROP ICE` in action on [my graph][graph]. The commits are in my [account repository][ar].
+
+[graph]: https://github.com/genuinebyte
+[ar]: https://github.com/genuinebyte/genuinebyte
+
 If you'd rather `ABOLISH ICE` then run it as `./dropice.sh <year> <month> <day> abolish`.
 
 ![abolishice][abolishice_image]
