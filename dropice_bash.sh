@@ -59,7 +59,7 @@ function commit100 () {
     echo "${word^^} ICE" >> $file
     git add $file
 
-    GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring git commit -m "${word^} Ice $1 #"$x > /dev/null 2>&1
+    export GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring && git commit -m "${word^} Ice $1 #"$x > /dev/null 2>&1
   done
 }
 
