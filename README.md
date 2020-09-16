@@ -1,0 +1,23 @@
+# D R O P I C E
+
+Thank you for the [wonderful idea][ce-tweet], [@ComradeEevee][ce].
+
+[ce-tweet]: https://twitter.com/ComradeEevee/status/1306262129687826433
+[ce]: https://twitter.com/ComradeEevee
+
+Run the `dropice.sh` script and pass it the year, month, and day you want the
+phrase to end. In the `DROP ICE` screenshot below, I ran it as:
+`./dropice.sh 2020 08 30` because that's where the end of the E is.
+
+![dropice][dropice_image]
+
+[dropice_image]: res/drop_ice.png
+
+If you'd rather `ABOLISH ICE` then run it as `./dropice.sh <year> <month> <day> abolish`.
+
+![abolishice][abolishice_image]
+
+[abolishice_image]: res/abolish_ice.png
+
+When you start loosing the start of the first word because time moves, you can delete the repository
+you pushed to github that has all the commits, and then make a new one with new dates!

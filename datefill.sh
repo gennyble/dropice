@@ -5,8 +5,9 @@
 function commit100
 	set fulldatestring $argv[1]" 12:00:00"
 	for x in (seq 0 100)
-		set file $argv[1]".txt"
-
+		mkdir -p "dropice"
+		set file "dropice/"$argv[1]".txt"
+		
 		echo "DROP ICE" >> $file
 		git add $file
 
