@@ -27,11 +27,7 @@ then
   exit
 fi
 
-lastweek=$(date --date=$enddate"-29 weeks" +%F)
-if [ "$word" == "abolish" ]
-then
-  lastweek=$(date --date=$enddate"-41 weeks" +%F)
-fi
+lastweek=$enddate
 
 function commit100 () {
   fulldatestring="$1 12:00:00"
@@ -44,7 +40,7 @@ function commit100 () {
     echo "${word^^} ICE" >> $file
     git add $file
 
-    export GIT_COMMIT_DATE=$fulldatestring && export GIT_AUTHOR_DATE=$fulldatestring && git commit -m "${word^} Ice $1 #"$x > /dev/null 2>&1
+    export GIT_COMMIT_DATE=$fulldatestring GIT_AUTHOR_DATE=$fulldatestring && git commit -m "${word^} Ice $1 #"$x > /dev/null 2>&1
   done
 }
 
@@ -57,14 +53,14 @@ function wh () {
   pattern=$(echo -n $pattern | rev)
   for c in $(echo $pattern | sed -e 's/\(.\)/\1\n/g')
   do
-    day=$(date --date=$day"+1 day" +%F)
+    day=$(date --date=$day"-1 day" +%F)
 
     if [ $c = "X" ]
     then
       commit100 $day
     fi
   done
-  lastweek=$(date --date=$lastweek"+1 weeks" +%F)
+  lastweek=$(date --date=$lastweek"-1 weeks" +%F)
 }
 
 if [ "$word" == "drop" ]
