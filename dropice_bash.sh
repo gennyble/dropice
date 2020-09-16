@@ -19,6 +19,7 @@ then
 fi
 
 startdate=$year"-"$month"-"$day
+lastweek=$startdate
 
 weekday=$(date --date=$startdate +%a)
 
@@ -28,28 +29,9 @@ then
   exit
 fi
 
-# Short for last_week
-function lw () {
-  if [ -n $1 ]
-  then
-    lastweek=$(date --date=$1"-1 weeks" +%F)
-  else
-    lastweek=$(date --date=$lastweek"-1 weeks" +%F)
-  fi
-
-  echo $lastweek
-}
-
-function yesterday () {
-  date --date=$1"-1 day" +%F
-}
-
-function tomorrow () {
-  date --date=$1"+1 day" +%F
-}
 
 function commit100 () {
-  fulldatestring=$1" 12:00:00"
+  fulldatestring="$1 12:00:00"
   echo "Performing 100 commits on $1 for $word..."
   for x in $(seq 0 10)
   do
@@ -66,97 +48,96 @@ function commit100 () {
 # Short for write_horizontal
 function wh () {
   pattern=$1
-  week=$2
-
+  week=$lastweek
   day=$week
 
   pattern=$(echo -n $pattern | rev)
   for c in $(echo $pattern | sed -e 's/\(.\)/\1\n/g')
   do
-    day=$(yesterday $day)
+    day=$(date --date=$day"-1 day" +%F)
 
     if [ $c = "X" ]
     then
       commit100 $day
     fi
   done
-  echo ""
+  lastweek=$(date --date=$lastweek"-1 weeks" +%F)
 }
 
 if [ "$word" == "drop" ]
 then
-  wh "X.....X" $startdate
-  wh "X..X..X" $(lw $startdate)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh "X.....X" $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "X.....X" $(lw)
-  wh "......." $(lw)
-  wh "......." $(lw)
-  wh "......." $(lw)
-  wh "XXX...." $(lw)
-  wh "X.X...." $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh ".XXXXX." $(lw)
-  wh "X.....X" $(lw)
-  wh ".XXXXX." $(lw)
-  wh "......." $(lw)
-  wh "XXX.XXX" $(lw)
-  wh "X..X..." $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh ".XXXXX." $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
+  wh "X.....X"
+  wh "X..X..X"
+  wh "XXXXXXX"
+  wh "......."
+  wh "X.....X"
+  wh "X.....X"
+  wh "XXXXXXX"
+  wh "......."
+  wh "X.....X"
+  wh "XXXXXXX"
+  wh "X.....X"
+  wh "......."
+  wh "......."
+  wh "......."
+  wh "XXX...."
+  wh "X.X...."
+  wh "XXXXXXX"
+  wh "......."
+  wh ".XXXXX."
+  wh "X.....X"
+  wh ".XXXXX."
+  wh "......."
+  wh "XXX.XXX"
+  wh "X..X..."
+  wh "XXXXXXX"
+  wh "......."
+  wh ".XXXXX."
+  wh "X.....X"
+  wh "XXXXXXX"
 fi
 
 if [ "$word" == "abolish" ]
 then
-  wh "X.....X" $startdate
-  wh "X..X..X" $(lw $startdate)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh "X.....X" $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "X.....X" $(lw)
-  wh "......." $(lw)
-  wh "......." $(lw)
-  wh "......." $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "...X..." $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh "X..XXX." $(lw)
-  wh "X..X..X" $(lw)
-  wh ".XX...X" $(lw)
-  wh "......." $(lw)
-  wh "X.....X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "X.....X" $(lw)
-  wh "......." $(lw)
-  wh "......X" $(lw)
-  wh "......X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh ".XXXXX." $(lw)
-  wh "X.....X" $(lw)
-  wh ".XXXXX." $(lw)
-  wh "......." $(lw)
-  wh ".XX.XX." $(lw)
-  wh "X..X..X" $(lw)
-  wh "XXXXXXX" $(lw)
-  wh "......." $(lw)
-  wh ".XXXXXX" $(lw)
-  wh "X..X..." $(lw)
-  wh ".XXXXXX" $(lw)
+  wh "X.....X"
+  wh "X..X..X"
+  wh "XXXXXXX"
+  wh "......."
+  wh "X.....X"
+  wh "X.....X"
+  wh "XXXXXXX"
+  wh "......."
+  wh "X.....X"
+  wh "XXXXXXX"
+  wh "X.....X"
+  wh "......."
+  wh "......."
+  wh "......."
+  wh "XXXXXXX"
+  wh "...X..."
+  wh "XXXXXXX"
+  wh "......."
+  wh "X..XXX."
+  wh "X..X..X"
+  wh ".XX...X"
+  wh "......."
+  wh "X.....X"
+  wh "XXXXXXX"
+  wh "X.....X"
+  wh "......."
+  wh "......X"
+  wh "......X"
+  wh "XXXXXXX"
+  wh "......."
+  wh ".XXXXX."
+  wh "X.....X"
+  wh ".XXXXX."
+  wh "......."
+  wh ".XX.XX."
+  wh "X..X..X"
+  wh "XXXXXXX"
+  wh "......."
+  wh ".XXXXXX"
+  wh "X..X..."
+  wh ".XXXXXX"
 fi
