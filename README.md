@@ -5,11 +5,10 @@ Thank you for the [wonderful idea][ce-tweet], [@ComradeEevee][ce].
 [ce-tweet]: https://twitter.com/ComradeEevee/status/1306262129687826433
 [ce]: https://twitter.com/ComradeEevee
 
-This is a set of shell scripts using the `fish` shell to write DROP ICE, or ABOLISH ICE, on your
-GitHub graph. **If someone wants to port this to bash, that'd be great and I would totally accept
-that PR!**
+This is a set of shell scripts using the `fish` or `bash` shell to write DROP ICE, or ABOLISH ICE, on your
+GitHub graph.
 
-Run the `dropice.sh` script and pass it the year, month, and day you want the
+Run the `dropice.sh` or `dropice_bash.sh` script and pass it the year, month, and day you want the
 phrase to end. In the `DROP ICE` screenshot below, I ran it as:
 `./dropice.sh 2020 08 30` because that's where the end of the E is.
 
