@@ -48,7 +48,7 @@ function commit100
 	for x in (seq 0 100)
 		mkdir -p "dropice"
 		set file "dropice/"$argv[1]".txt"
-		
+
 		echo "DROP ICE" >> $file
 		git add $file
 
@@ -148,4 +148,25 @@ if test "$argv[4]" = "abolish"
 	wh ".XXXXXX" (lw)
 	wh "X..X..." (lw)
 	wh ".XXXXXX" (lw)
+end
+
+if test "$argv[4]" = "dick"
+	wh "...X..." $startdate
+	wh "..XXX.." (lw $startdate)
+	wh ".XXXXX." (lw)
+	wh ".XXXXX." (lw)
+	wh ".XXXXX." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh "..XXX.." (lw)
+	wh ".XXXXX." (lw)
+	wh "XXXXXXX" (lw)
+	wh "XXXXXXX" (lw)
+	wh ".XX.XX." (lw)
 end
