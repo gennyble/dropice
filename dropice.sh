@@ -149,24 +149,3 @@ if test "$argv[4]" = "abolish"
 	wh "X..X..." (lw)
 	wh ".XXXXXX" (lw)
 end
-
-if test "$argv[4]" = "dick"
-	wh "...X..." $startdate
-	wh "..XXX.." (lw $startdate)
-	wh ".XXXXX." (lw)
-	wh ".XXXXX." (lw)
-	wh ".XXXXX." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh "..XXX.." (lw)
-	wh ".XXXXX." (lw)
-	wh "XXXXXXX" (lw)
-	wh "XXXXXXX" (lw)
-	wh ".XX.XX." (lw)
-end
